@@ -5,6 +5,7 @@ import 'package:uuid/uuid.dart';
 
 const uuid = Uuid();
 
+// ignore: constant_identifier_names
 enum Category { Food , Travel , Leisure , Work , Shopping}
 
 final formatter = DateFormat.yMd();
