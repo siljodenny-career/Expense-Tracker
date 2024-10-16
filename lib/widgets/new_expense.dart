@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:expense_tracker_app/main.dart';
 import 'package:expense_tracker_app/models/expense.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -149,7 +148,7 @@ class _NewExpenseState extends State<NewExpense> {
 
               const SizedBox(height: 25),
               TextField(
-                style: TextStyle(color: kColorScheme.primaryContainer),
+                style:const TextStyle(color: Colors.blueGrey),
                 controller: _titleController,
                 maxLength: 50,
                 keyboardType: TextInputType.text,
@@ -164,7 +163,7 @@ class _NewExpenseState extends State<NewExpense> {
                       controller: _amountController,
                       maxLength: 10,
                       keyboardType: TextInputType.number,
-                      style: TextStyle(color: kColorScheme.primaryContainer),
+                      style:const TextStyle(color: Colors.blueGrey),
                       decoration: const InputDecoration(
                           label: Text('Amount'),
                           prefix: Text('INR '),
