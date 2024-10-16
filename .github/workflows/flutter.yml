@@ -27,7 +27,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.x.x'   # Define the Flutter version, you can specify a specific version if needed
-          channel: ${{ matrix.flutter_channel }}
+          channel: stable
 
       # Run flutter pub get to install dependencies
       - name: Install dependencies
