@@ -25,8 +25,8 @@ class ExpenseItem extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  '\INR ${expense.amount.toStringAsFixed(2)}',
-                  style: TextStyle( color: const Color.fromARGB(255, 244, 67, 54)),
+                  'INR ${expense.amount.toStringAsFixed(2)}',
+                  style:const TextStyle( color:  Color.fromARGB(255, 244, 67, 54)),
                 ), //toStringAsFixed makes decimal points upto 2 values. example: makes 20.3562 to 20.35
                 const Spacer(),
                 Expanded(
@@ -37,7 +37,7 @@ class ExpenseItem extends StatelessWidget {
                       const SizedBox(width: 8),
                       Text(
                         expense.formattedDate,
-                        style: TextStyle(color: const Color.fromARGB(255, 6, 88, 230)),
+                        style:const TextStyle(color:  Color.fromARGB(255, 6, 88, 230)),
                       ),
                     ],
                   ),

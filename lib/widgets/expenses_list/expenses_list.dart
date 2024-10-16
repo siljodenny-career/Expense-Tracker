@@ -3,7 +3,7 @@ import 'package:expense_tracker_app/widgets/expenses_list/expense_item.dart';
 import 'package:flutter/material.dart';
 
 class ExpensesList extends StatelessWidget {
-  ExpensesList(
+  const ExpensesList(
       {super.key, required this.expenses, required this.onRemoveExpense});
 
   final List<Expense> expenses;
@@ -25,10 +25,10 @@ class ExpensesList extends StatelessWidget {
           margin: EdgeInsets.symmetric(
               horizontal: Theme.of(context).cardTheme.margin!.horizontal,
               vertical: Theme.of(context).cardTheme.margin!.vertical),
-          child: Icon(
+          child:const Icon(
             Icons.delete_outline,
             size: 35,
-            color: const Color.fromARGB(125, 0, 0, 0),
+            color:  Color.fromARGB(125, 0, 0, 0),
           ),
         ),
         onDismissed: (direction) {

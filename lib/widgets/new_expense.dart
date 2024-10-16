@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NewExpense extends StatefulWidget {
-  NewExpense({super.key, required this.onAddExpense});
+  const NewExpense({super.key, required this.onAddExpense});
 
   final void Function(Expense expense) onAddExpense;
 
@@ -65,7 +65,7 @@ class _NewExpenseState extends State<NewExpense> {
           ? showCupertinoDialog(
               context: context,
               builder: (ctx) => CupertinoAlertDialog(
-                title: Text(
+                title: const Text(
                   'Invalid Input',
                 ),
                 content: Text(_titleController.text.isEmpty &&
@@ -84,17 +84,16 @@ class _NewExpenseState extends State<NewExpense> {
                       onPressed: () {
                         Navigator.pop(ctx);
                       },
-                      child: Text('Understood'))
+                      child: const Text('Understood'))
                 ],
               ),
             )
           : showDialog(
               context: context,
               builder: (ctx) => AlertDialog(
-                    title: Text(
+                    title: const Text(
                       'Invalid Input',
-                      style: TextStyle(
-                          color: const Color.fromARGB(238, 2, 102, 184)),
+                      style: TextStyle(color: Color.fromARGB(238, 2, 102, 184)),
                     ),
                     content: Text(_titleController.text.isEmpty &&
                             amountIsValid &&
@@ -112,7 +111,7 @@ class _NewExpenseState extends State<NewExpense> {
                           onPressed: () {
                             Navigator.pop(ctx);
                           },
-                          child: Text('Understood'))
+                          child: const Text('Understood'))
                     ],
                   ));
       return;
@@ -139,22 +138,22 @@ class _NewExpenseState extends State<NewExpense> {
           padding: EdgeInsets.fromLTRB(30, 16, 30, keyboardSpace + 16),
           child: Column(
             children: [
-              Text(
+              const Text(
                 'Add New Expense',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w500,
-                  color: const Color.fromARGB(228, 36, 119, 152),
+                  color: Color.fromARGB(228, 36, 119, 152),
                 ),
               ),
-              
-              SizedBox(height: 25),
+
+              const SizedBox(height: 25),
               TextField(
                 style: TextStyle(color: kColorScheme.primaryContainer),
                 controller: _titleController,
                 maxLength: 50,
                 keyboardType: TextInputType.text,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     label: Text('Title'),
                     border: OutlineInputBorder(borderSide: BorderSide())),
               ),
@@ -166,9 +165,9 @@ class _NewExpenseState extends State<NewExpense> {
                       maxLength: 10,
                       keyboardType: TextInputType.number,
                       style: TextStyle(color: kColorScheme.primaryContainer),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           label: Text('Amount'),
-                          prefix: Text('\INR '),
+                          prefix: Text('INR '),
                           border: OutlineInputBorder(borderSide: BorderSide())),
                     ),
                   ),
@@ -184,12 +183,12 @@ class _NewExpenseState extends State<NewExpense> {
                           _selectedDate == null
                               ? 'Select Date'
                               : formatter.format(_selectedDate!),
-                          style: TextStyle(color: Colors.blueGrey),
+                          style: const TextStyle(color: Colors.blueGrey),
                         ),
                         const SizedBox(width: 5),
                         IconButton(
                           onPressed: _presentDatePicker,
-                          icon: Icon(Icons.calendar_month),
+                          icon: const Icon(Icons.calendar_month),
                         )
                       ],
                     ),
@@ -222,7 +221,6 @@ class _NewExpenseState extends State<NewExpense> {
                         setState(() {
                           _selelctedCategory = value;
                         });
-                        print(value);
                       }),
                   const Spacer(),
 
@@ -239,7 +237,6 @@ class _NewExpenseState extends State<NewExpense> {
                   ElevatedButton(
                     onPressed: () {
                       Navigator.pop(context);
-                      print('Cancel');
                     },
                     child: const Text('Cancel'),
                   )

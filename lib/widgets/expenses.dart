@@ -30,7 +30,7 @@ class _ExpensesState extends State<Expenses> {
   @override
   void initState() {
     super.initState();
-    _timer = Timer.periodic(Duration(seconds: 8), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 8), (Timer timer) {
       setState(() {
         _currentIndex = (_currentIndex + 1) % texts.length;
       });
@@ -79,7 +79,7 @@ class _ExpensesState extends State<Expenses> {
   ];
 
   void _openAddExpenseOverlay() {
-    print('clicked');
+    
     showModalBottomSheet(
       useSafeArea: true,
       context: context,
@@ -106,8 +106,8 @@ class _ExpensesState extends State<Expenses> {
     //----------------------------------------------------------------------------------------------------------------------------
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      duration: Duration(seconds: 1),
-      content: Text('Expense deleted'),
+      duration:const Duration(seconds: 1),
+      content: const Text('Expense deleted'),
       action: SnackBarAction(
           label: 'Undo',
           onPressed: () {
@@ -122,8 +122,7 @@ class _ExpensesState extends State<Expenses> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    print(
-        'height :${MediaQuery.of(context).size.height}'); //here by printing mediaquery we can see the width and height of the running-app-device.By taking the measurement we can manage configuration of the screen widgets.
+     //here by printing mediaquery we can see the width and height of the running-app-device.By taking the measurement we can manage configuration of the screen widgets.
 
     Widget mainContent = Center(
       child: Container(
@@ -136,12 +135,12 @@ class _ExpensesState extends State<Expenses> {
                     width: 400,
                     color: const Color.fromARGB(20, 255, 255, 255),
                   ),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'No Expenses found.Add some expenses.',
                     style: TextStyle(
-                        backgroundColor: const Color.fromARGB(93, 24, 27, 29),
-                        color: const Color.fromARGB(62, 255, 255, 255),
+                        backgroundColor:  Color.fromARGB(93, 24, 27, 29),
+                        color:  Color.fromARGB(62, 255, 255, 255),
                         fontSize: 15),
                   ),
                 ],
@@ -154,12 +153,12 @@ class _ExpensesState extends State<Expenses> {
                     width: 300,
                     color: const Color.fromARGB(20, 255, 255, 255),
                   ),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'No Expenses found.Add some expenses.',
                     style: TextStyle(
-                        backgroundColor: const Color.fromARGB(93, 24, 27, 29),
-                        color: const Color.fromARGB(62, 255, 255, 255),
+                        backgroundColor:  Color.fromARGB(93, 24, 27, 29),
+                        color:  Color.fromARGB(62, 255, 255, 255),
                         fontSize: 13),
                   ),
                 ],
@@ -182,7 +181,7 @@ class _ExpensesState extends State<Expenses> {
                   width: 300,
                   height: 100,
                   child: AnimatedSwitcher(
-                    duration: Duration(milliseconds: 500),
+                    duration:const Duration(milliseconds: 500),
                     transitionBuilder: (
                       Widget child,
                       Animation<double> animation,
@@ -195,7 +194,7 @@ class _ExpensesState extends State<Expenses> {
                       texts[_currentIndex],
                       key: ValueKey<String>(texts[_currentIndex]),
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style:const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w300,
                           fontStyle: FontStyle.italic,
@@ -221,7 +220,7 @@ class _ExpensesState extends State<Expenses> {
                   'assets/images/no_expense_wallpaper.png',
                   alignment: Alignment.topCenter,
                 )),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Expanded(
                   flex: 1,
                   child: ExpensesList(
@@ -235,11 +234,11 @@ class _ExpensesState extends State<Expenses> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Expense Tracker',style: TextStyle(fontSize: 16),),
+        title:const Text('Expense Tracker',style: TextStyle(fontSize: 16),),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: _openAddExpenseOverlay, icon: Icon(Icons.add)),
-          SizedBox(width: 15)
+          IconButton(onPressed: _openAddExpenseOverlay, icon:const Icon(Icons.add)),
+          const SizedBox(width: 15)
         ],
       ),
       body: Column(
