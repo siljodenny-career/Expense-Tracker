@@ -1,0 +1,53 @@
+name: Flutter CI
+
+# Trigger the workflow on push and pull requests to the master branch
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        flutter_channel: [stable, beta]  # Specify which Flutter channels to run
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Install Flutter on the runner
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.x.x'   # Define the Flutter version, you can specify a specific version if needed
+          channel: ${{ matrix.flutter_channel }}
+
+      # Run flutter pub get to install dependencies
+      - name: Install dependencies
+        run: flutter pub get
+
+      # Run Flutter analyzer to check for code issues
+      - name: Analyze code
+        run: flutter analyze
+
+      # Run tests for the project
+      - name: Run tests
+        run: flutter test
+
+      # Optionally, build the APK (or app bundle)
+      - name: Build APK
+        run: flutter build apk --release
+
+      # You can add steps to store the built APK or bundle
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-release.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
