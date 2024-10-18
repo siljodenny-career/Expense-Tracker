@@ -33,12 +33,12 @@ void main() {
         //--------------------------------------------------------------------------------------------
         theme: ThemeData().copyWith(
           colorScheme: kColorScheme,
-          appBarTheme: AppBarTheme().copyWith(
+          appBarTheme:const AppBarTheme().copyWith(
               backgroundColor: kColorScheme.onPrimaryFixed,
               foregroundColor: kColorScheme.primaryContainer),
-          cardTheme: CardTheme().copyWith(
+          cardTheme:const CardTheme().copyWith(
               color: kColorScheme.secondaryContainer,
-              margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8)),
+              margin:const EdgeInsets.symmetric(horizontal: 16, vertical: 8)),
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
                   backgroundColor: kColorScheme.onPrimaryContainer,
@@ -50,7 +50,7 @@ void main() {
                 color: kColorScheme.onSecondaryContainer,
                 letterSpacing: 0.2,
               ),
-              titleMedium: TextStyle(
+              titleMedium:const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w600,
                 letterSpacing: 0.5,
@@ -64,7 +64,7 @@ void main() {
         //-------------------------------------------------------------------------------------------
         darkTheme: ThemeData.dark().copyWith(
           colorScheme: kDarkColorScheme,
-          appBarTheme: AppBarTheme().copyWith(
+          appBarTheme:const AppBarTheme().copyWith(
               backgroundColor: kDarkColorScheme.primaryContainer,
               foregroundColor: kDarkColorScheme.onSecondaryContainer),
           textTheme: ThemeData().textTheme.copyWith(
@@ -88,12 +88,12 @@ void main() {
               style: ElevatedButton.styleFrom(
                   backgroundColor: kDarkColorScheme.primaryContainer,
                   foregroundColor: kDarkColorScheme.onPrimaryContainer)),
-          cardTheme: CardTheme().copyWith(
+          cardTheme:const CardTheme().copyWith(
               color: kDarkColorScheme.secondaryContainer,
-              margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8)),
+              margin:const EdgeInsets.symmetric(horizontal: 16, vertical: 8)),
         ),
         themeMode: ThemeMode.system,
-        home: Expenses(),
+        home:const Expenses(),
       ),
     );
   });
