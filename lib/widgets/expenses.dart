@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:expense_tracker_app/widgets/chart/chart.dart';
 import 'package:expense_tracker_app/widgets/expenses_list/expenses_list.dart';
 import 'package:expense_tracker_app/models/expense.dart';
 import 'package:expense_tracker_app/widgets/new_expense.dart';
@@ -170,6 +171,7 @@ class _ExpensesState extends State<Expenses> {
       mainContent = width < 600
           ? Column(
               children: [
+                
                 Expanded(
                     child: Image.asset(
                   'assets/images/no_expense_wallpaper.png',
@@ -204,6 +206,7 @@ class _ExpensesState extends State<Expenses> {
                   ),
                 ),
                 //----------------------------------------------------------------------------------------------
+                Chart(expenses: _registeredExpenses),
                 Expanded(
                   flex: 2,
                   child: ExpensesList(
@@ -211,6 +214,7 @@ class _ExpensesState extends State<Expenses> {
                     onRemoveExpense: _removeExpense,
                   ),
                 ),
+                
               ],
             )
           : Row(
@@ -228,6 +232,7 @@ class _ExpensesState extends State<Expenses> {
                     onRemoveExpense: _removeExpense,
                   ),
                 ),
+                Expanded(child: Chart(expenses: _registeredExpenses)),
               ],
             );
     }
