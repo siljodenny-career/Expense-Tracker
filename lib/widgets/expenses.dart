@@ -223,7 +223,8 @@ class _ExpensesState extends State<Expenses> {
               Expanded(
                 child: Column(
                   children: [
-                    SizedBox(
+                    Container(
+                      alignment: Alignment.centerLeft,
                       height: 100,
                       child: AnimatedSwitcher(
                         duration: const Duration(milliseconds: 500),
