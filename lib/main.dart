@@ -13,7 +13,7 @@ var kDarkColorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
   seedColor: const Color.fromARGB(255, 5, 99, 125),
 );
-//---------------------------------------
+//--------------------------------------- 
 
 void main() {
   //(Managing Device Orientation)
